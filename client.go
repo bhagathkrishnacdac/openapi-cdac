@@ -34,6 +34,7 @@ import (
 	"strings"
 	"time"
 
+	"github.com/omec-project/openapi/logger"
 	"golang.org/x/net/http2"
 	"golang.org/x/oauth2"
 	"gopkg.in/h2non/gock.v1"
@@ -426,6 +427,7 @@ func PrepareRequest(
 		return nil, err
 	}
 
+	logger.OpenapiLog.Infof("OpenAPI URL: ", url)
 	// Adding Query Param
 	query := url.Query()
 	for k, v := range queryParams {

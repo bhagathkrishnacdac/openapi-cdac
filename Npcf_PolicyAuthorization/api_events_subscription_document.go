@@ -22,6 +22,7 @@ import (
 	"strings"
 
 	"github.com/omec-project/openapi"
+	"github.com/omec-project/openapi/logger"
 	"github.com/omec-project/openapi/models"
 )
 
@@ -204,9 +205,11 @@ func (a *EventsSubscriptionDocumentApiService) UpdateEventsSubsc(ctx context.Con
 
 	r, err := openapi.PrepareRequest(ctx, a.client.cfg, localVarPath, localVarHTTPMethod, localVarPostBody, localVarHeaderParams, localVarQueryParams, localVarFormParams, localVarFormFileName, localVarFileName, localVarFileBytes)
 	if err != nil {
+		logger.OpenapiLog.Infof("OpenAPI Prepare Request Error: ", err)
 		return localVarReturnValue, nil, err
 	}
 
+	logger.OpenapiLog.Infof("OpenAPI Host: ", r.Host)
 	localVarHTTPResponse, err := openapi.CallAPI(a.client.cfg, r)
 	if err != nil || localVarHTTPResponse == nil {
 		return localVarReturnValue, localVarHTTPResponse, err
