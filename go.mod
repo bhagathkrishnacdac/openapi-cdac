@@ -1,5 +1,4 @@
-module github.com/5GC-DEV/openapi-cdac
-
+module github.com/omec-project/openapi
 go 1.23
 
 require (
